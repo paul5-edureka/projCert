@@ -1,0 +1,15 @@
+---
+- name: Install Docker, Clone git repository, Create Image and Start Container
+  hosts: webservers
+  become: true
+  become_user: root
+  tasks:
+  - name: Install docker
+    yum:
+      name: docker 
+      state: present
+  - name: Start Docker Service
+    service:
+      name: docker 
+      state: started
+      enabled: yes
