@@ -27,4 +27,6 @@
       name: myphpapplication:v1.0
       build:
         path: /tmp/project/
-        source: build
+      source: build
+      state: present
+      force_source: yes
