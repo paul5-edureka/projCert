@@ -6,7 +6,7 @@
   tasks:
   - name: Install docker
     yum:
-      name: [docker, python-docker] 
+      name: [docker] 
       state: present
   - name: Start Docker Service
     service:
