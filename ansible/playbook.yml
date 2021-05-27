@@ -13,6 +13,11 @@
       name: docker 
       state: started
       enabled: yes
+  - name: Install git
+    yum:
+      name: git
+      state: present
+      update_cache: yes
   - name: Git checkout
     git:
       repo: 'https://github.com/paul5-edureka/projCert.git'
