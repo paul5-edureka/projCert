@@ -13,3 +13,7 @@
       name: docker 
       state: started
       enabled: yes
+  - name: Git checkout
+    ansible.builtin.git:
+      repo: 'https://github.com/paul5-edureka/projCert.git'
+      dest: /tmp/project
