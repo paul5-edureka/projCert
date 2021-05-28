@@ -5,7 +5,7 @@
   become_user: root
   tasks:
   - name: Install docker
-    yum:
+    dnf:
       name: [docker] 
       state: present
   - name: Start Docker Service
@@ -14,7 +14,7 @@
       state: started
       enabled: yes
   - name: Install git
-    yum:
+    dnf:
       name: git
       state: present
       update_cache: yes
