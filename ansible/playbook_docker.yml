@@ -1,0 +1,14 @@
+---
+- name: Create Image and Start Docker Container
+  hosts: webservers
+  become: true
+  become_user: root
+  tasks:
+  - name: build container image
+    docker_image:
+      name: myphpapplication:v1.0
+      build:
+        path: /tmp/project/
+      source: build
+      state: present
+      force_source: yes

@@ -1,5 +1,5 @@
 ---
-- name: Install Docker, Clone git repository, Create Image and Start Container
+- name: Install Docker, Clone git repository
   hosts: webservers
   become: true
   become_user: root
@@ -22,19 +22,3 @@
     git:
       repo: 'https://github.com/paul5-edureka/projCert.git'
       dest: /tmp/project
-
-- name: Create Image and Start Docker Container
-  hosts: webservers
-  become: true
-  become_user: root
-  tasks:
-  - name: build container image
-    docker_image:
-      name: myphpapplication:v1.0
-      build:
-        path: /tmp/project/
-      source: build
-      state: present
-      force_source: yes
-    environment:
-      ansible_python_interpreter: /usr/bin/python3
