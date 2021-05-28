@@ -12,5 +12,12 @@ pipeline {
                 ansiblePlaybook credentialsId: 'sshkey', disableHostKeyChecking: true, installation: 'MyAnsible', inventory: 'ansible/dev_python3.inv', playbook: 'ansible/playbook_docker.yml'
             }
         }
+        stage('Run Tests') {
+          steps {
+            dir('selenium') {
+              sh 'mvn clean install -DapplicationUrl=http://34.242.31.109:8080/'
+            }
+          }
+        }
     }
 }
