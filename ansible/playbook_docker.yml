@@ -1,5 +1,5 @@
 ---
-- name: Create Image and Start Docker Container
+- name: Create Image and Re-Create Docker Container
   hosts: webservers
   become: true
   become_user: root
@@ -12,3 +12,12 @@
       source: build
       state: present
       force_source: yes
+  - name: Re-create container
+    docker_container:
+      name: myphpapp
+      image: myphpapplication:v1.0
+      state: present
+      recreate: yes
+      ports:
+      # Publish container port 80 as host port 8080
+      - "8080:80"
