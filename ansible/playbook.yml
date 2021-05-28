@@ -25,8 +25,6 @@
   - name: build container image
     docker_image:
       name: myphpapplication:v1.0
-      vars:
-        ansible_python_interpreter: /usr/bin/python3
       build:
         path: /tmp/project/
       source: build
