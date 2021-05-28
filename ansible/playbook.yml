@@ -5,7 +5,7 @@
   become_user: root
   tasks:
   - name: Install docker
-    dnf:
+    yum:
       name: [docker] 
       state: present
   - name: Start Docker Service
@@ -14,7 +14,7 @@
       state: started
       enabled: yes
   - name: Install git
-    dnf:
+    yum:
       name: git
       state: present
       update_cache: yes
@@ -22,6 +22,14 @@
     git:
       repo: 'https://github.com/paul5-edureka/projCert.git'
       dest: /tmp/project
+
+- name: Create Image and Start Docker Container
+  hosts: webservers
+  vars:
+    ansible_python_interpreter: /usr/bin/python3
+  become: true
+  become_user: root
+  tasks:
   - name: build container image
     docker_image:
       name: myphpapplication:v1.0
