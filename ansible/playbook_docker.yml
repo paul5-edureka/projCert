@@ -16,7 +16,7 @@
     docker_container:
       name: myphpapp
       image: myphpapplication:v1.0
-      state: present
+      state: started
       recreate: yes
       ports:
       # Publish container port 80 as host port 8080
