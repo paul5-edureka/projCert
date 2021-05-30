@@ -1,4 +1,5 @@
 # projCert
+___Used Two amazon linux instances to setup the environment, see the user-date of the two instances___
 
 ## Repository Contents
 
