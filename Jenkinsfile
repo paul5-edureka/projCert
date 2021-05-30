@@ -2,6 +2,15 @@ pipeline {
     agent any
 
     stages {
+        stage('Clean Workspace and Checkout') {
+            steps {
+                // Clean before build
+                cleanWs()
+                // We need to explicitly checkout from SCM here
+                checkout scm
+                echo "Building ${env.JOB_NAME}..."
+            }
+        }
         stage('Prepare ansible agents') {
             steps {
                 ansiblePlaybook credentialsId: 'sshkey', disableHostKeyChecking: true, installation: 'MyAnsible', inventory: 'ansible/dev.inv', playbook: 'ansible/playbook.yml'
