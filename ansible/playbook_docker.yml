@@ -15,7 +15,7 @@
   - name: Re-create container
     docker_container:
       name: myphpapp
-      image: myphpapplication:v1.0
+      image: myphpapplication:v2.0
       state: started
       recreate: yes
       ports:
