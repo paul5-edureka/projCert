@@ -38,6 +38,7 @@ pipeline {
         }    
         failure {
             echo 'posting failure'
+            ansiblePlaybook credentialsId: 'sshkey', disableHostKeyChecking: true, installation: 'MyAnsible', inventory: 'ansible/dev_python3.inv', playbook: 'ansible/playbook_cleanup.yml'
         }    
     }    
 }
