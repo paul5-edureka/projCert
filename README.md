@@ -18,6 +18,6 @@ Webhook configured in GitRepo will notify the Jenkins job of any changes.
 ### dockerfile
 Will copy contents of the website, and start Http server
 ### user-data_JenkinsMaster.txt
-Copy and paste contents of this file to the user-data section of Jenkins Master Amazon Linux Instance
+Copy and paste contents of this file to the user-data section of Amazon Linux Instance Jenkins Master
 ### user-data_TestServer.txt
-Copy and paste contents of this file to the user-data section of the Test Server 
+Copy and paste contents of this file to the user-data section of the Amazon Linux Instance Test Server 
