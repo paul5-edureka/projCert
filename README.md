@@ -1,11 +1,14 @@
 # projCert
 
 ## Repository Contents
+
 ### ansible
 Contains the playbooks and inventory files
 ### selenium
-Maven project with Selenium tests
+Maven project with Selenium tests.
+
 **applicationUrl** and **webdriver.chrome.driver** are passes as system properties.
+
 ___Need to update the Jenkinsfile when ansible inventory changes___ 
 ```
 sh 'mvn clean install -Dwebdriver.chrome.driver=/usr/bin/chromedriver -DapplicationUrl=http://172.31.30.131:8080/'
