@@ -15,7 +15,7 @@ pipeline {
         stage('Run Tests') {
           steps {
             dir('selenium') {
-              sh 'mvn clean install -Dwebdriver.chrome.driver=/usr/bin/chromedriver -DapplicationUrl=http://34.242.31.109:8080/'
+              sh 'mvn clean install -Dwebdriver.chrome.driver=/usr/bin/chromedriver -DapplicationUrl=http://172.31.30.131:8080/'
             }
           }
         }
