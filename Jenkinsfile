@@ -19,11 +19,13 @@ pipeline {
         stage('Run Tests') {
           steps {
             dir('selenium') {
-                try {
-                    sh 'mvn clean install -Dwebdriver.chrome.driver=/usr/bin/chromedriver -DapplicationUrl=http://172.31.30.131:8080/'      
-                } finally {
-                    junit allowEmptyResults: true, testResults: 'target/surefire-reports/junitreports/*.xml'
-                    publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: false, reportDir: 'target/surefire-reports', reportFiles: 'index.html', reportName: 'HTML Report', reportTitles: ''])        
+                script {
+                    try {
+                        sh 'mvn clean install -Dwebdriver.chrome.driver=/usr/bin/chromedriver -DapplicationUrl=http://172.31.30.131:8080/'      
+                    } finally {
+                        junit allowEmptyResults: true, testResults: 'target/surefire-reports/junitreports/*.xml'
+                        publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: false, reportDir: 'target/surefire-reports', reportFiles: 'index.html', reportName: 'HTML Report', reportTitles: ''])        
+                    }
                 }    
             }
           }
